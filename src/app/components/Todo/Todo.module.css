@@ -2,11 +2,10 @@
   width: 80%;
   display: flex;
   flex-flow: column nowrap;
-  border: 5px solid rgb(42, 85, 85);
   border-radius: 2rem;
-  box-shadow: 0 0.4rem 0 rgb(42, 85, 85);
-  background: rgb(207, 41, 12);
-  color: aliceblue;
+  box-shadow: 0 0.4rem 0 var(--color-primary-accent);
+  background: var(--color-primary);
+  color: var(--color-text-light);
   padding: 1rem 1.5rem;
 }
 
@@ -15,5 +14,7 @@
 }
 
 .done {
-  background: rgb(1, 129, 101);
+  background: var(--color-secondary);
+  box-shadow: 0 0.4rem 0 var(--color-secondary-accent);
+  color: var(--color-text-dark);
 }
