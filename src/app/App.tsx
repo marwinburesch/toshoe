@@ -1,10 +1,12 @@
 import React from 'react';
 import Todo from './components/Todo/Todo';
 import styles from './App.module.css';
+import Form from './components/Form/Form';
 
 function App(): JSX.Element {
   return (
     <div className={styles.appContainer}>
+      <Form />
       <Todo
         title="Polish shoes"
         description="All shoes in the cabinet next to the apartment door"
