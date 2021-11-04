@@ -1,55 +1,31 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import Todo from './components/Todo/Todo';
 import styles from './App.module.css';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 function App(): JSX.Element {
-  const [count, setCount] = useState<number>(0);
-
   return (
-    <BrowserRouter>
-      <div className={styles.App}>
-        <header className={styles['App-header']}>
-          <img src={logo} className={styles['App-logo']} alt="logo" />
-          <p>Hello Vite + React!</p>
-          <p>
-            <button onClick={() => setCount((count) => count + 1)}>
-              count is: {count}
-            </button>
-          </p>
-          <p>
-            Edit <code>App.tsx</code> and save to test HMR updates.
-          </p>
-          <p>
-            <a
-              className={styles['App-link']}
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-            {' | '}
-            <a
-              className={styles['App-link']}
-              href="https://vitejs.dev/guide/features.html"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Vite Docs
-            </a>
-          </p>
-          <Switch>
-            <Route path="/about">
-              <main>About</main>
-            </Route>
-            <Route path="/">
-              <main>Home</main>
-            </Route>
-          </Switch>
-        </header>
-      </div>
-    </BrowserRouter>
+    <div className={styles.appContainer}>
+      <Todo
+        title="Polish shoes"
+        description="All shoes in the cabinet next to the apartment door"
+        isDone={true}
+      />
+      <Todo
+        title="Sell the old Air Jordans 1"
+        description="I never wear them anyway"
+        isDone={false}
+      />
+      <Todo
+        title="Buy new laces"
+        description="Colors: Neon green, hotpink and Gouda"
+        isDone={false}
+      />
+      <Todo
+        title="Retie the white sneakers"
+        description="I'm tired of falling on my face"
+        isDone={false}
+      />
+    </div>
   );
 }
 
