@@ -1,14 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
+import styles from './Counter.module.css';
 
-export default function Counter(): JSX.Element {
-  // <number> is a generic in TS
-  const [count, setCount] = useState<number>(0);
+type CounterProps = {
+  count: number;
+  onIncrementClick: () => void;
+  onDecrementClick: () => void;
+};
 
+export default function Counter({
+  count,
+  onDecrementClick,
+  onIncrementClick,
+}: CounterProps): JSX.Element {
   return (
     <div>
-      <button onClick={() => setCount(count - 1)}>-</button>
+      <button className={styles.button} onClick={onDecrementClick}>
+        -
+      </button>
       {count}
-      <button onClick={() => setCount(count + 1)}>+</button>
+      <button className={styles.button} onClick={onIncrementClick}>
+        +
+      </button>
     </div>
   );
 }
