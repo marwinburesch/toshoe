@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Todo from './components/Todo/Todo';
 import styles from './App.module.css';
 import Form from './components/Form/Form';
+import Counter from './components/Counter/Counter';
 
 function App(): JSX.Element {
   const [todos, setTodos] = useState([
@@ -27,6 +28,17 @@ function App(): JSX.Element {
     },
   ]);
 
+  // <number> is a generic in TS
+  const [count, setCount] = useState<number>(0);
+
+  function decrement() {
+    if (count <= 0) {
+      alert('not allowed!');
+      return;
+    }
+    setCount(count - 1);
+  }
+
   function handleSubmit(todo: {
     title: string;
     description: string;
@@ -38,6 +50,11 @@ function App(): JSX.Element {
 
   return (
     <div className={styles.appContainer}>
+      <Counter
+        count={count}
+        onDecrementClick={decrement}
+        onIncrementClick={() => setCount(count + 1)}
+      />
       <Form onSubmit={handleSubmit} />
       {todos.map((todo) => (
         <Todo
